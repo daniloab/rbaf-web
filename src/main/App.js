@@ -3,7 +3,7 @@ import { graphql, QueryRenderer } from 'react-relay';
 
 import environment from '../relay/Environment'
 
-export default class App extends React.Component {
+export default class App extends Component {
   render() {
     return (
       <QueryRenderer
