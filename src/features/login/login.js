@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import { Row, Col } from '../../common/Columns/Columns'
+import { Row, Col } from '../../common/columns/Columns'
 
 export default class Login extends Component {
     render() {
         return (
             <Row justify="center" align="center">
-                <Col span={6} justify="center">
+                <Col span={6} justify="center" align="center">
                     <LoginForm>
                         <form action="">
                             <FormHead>
-                                <h1>sportstore</h1>
+                                <h1>rbaf manager</h1>
                             </FormHead>
                             <div>
                                 <Input type="text" placeholder="login" />
@@ -33,7 +33,6 @@ const pColor = '#1bad9f'
 const pColorLight = '#60dfd0'
 const pColorDark = '#007d71'
 const FontFamily = `'Roboto', sans-serif;`
-
 
 const BtnDefault = `
     display: flex;
@@ -113,9 +112,9 @@ const Input = styled.input`
   }
 `
 
-
 const BtnSignIn = styled.button `
     ${BtnDefault}
+    color: white;
     background-color: ${pColor};
   
     &:hover {

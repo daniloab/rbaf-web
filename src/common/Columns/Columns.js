@@ -15,6 +15,7 @@ export const Row = ({ children, ...props }) => <StyledRow {...props}>{children}<
 export const StyledCol = styled.div`
   display: flex;
   justify-content: ${props => props.justify};
+  align-items: ${props => props.align};
   width: calc((100% * ${props => props.span ? props.span : 12}) / 12);
   padding: 5px 5px 0px 5px;
   height: 100%;
