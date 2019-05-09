@@ -9,7 +9,7 @@ export default class App extends Component {
       <QueryRenderer
         environment={environment}
         query={graphql`
-        query UserQuery {
+        query AppQuery{
           users {
             name
             username
@@ -19,13 +19,14 @@ export default class App extends Component {
       `}
         variables={{}}
         render={({ error, props }) => {
+          console.log(props)
           if (error) {
             return <div>Error!</div>;
           }
           if (!props) {
             return <div>Loading...</div>;
           }
-          return <div>User ID: {props.users.name}</div>;
+          return <div>User ID: {props.users[0]  .name}</div>;
         }}
       />
     );
