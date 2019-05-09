@@ -32,8 +32,8 @@ var dotenvFiles = [
 // https://github.com/motdotla/dotenv-expand
 dotenvFiles.forEach(dotenvFile => {
   if (fs.existsSync(dotenvFile)) {
-    require('dotenv-expand')(
-      require('dotenv').config({
+    require('./node_modules/dotenv-expand')(
+      require('./node_modules/dotenv').config({
         path: dotenvFile,
       })
     );
