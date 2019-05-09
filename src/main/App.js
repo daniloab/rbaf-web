@@ -4,8 +4,8 @@ import { graphql, QueryRenderer } from 'react-relay';
 import environment from '../relay/Environment'
 
 import GlobalStyle from '../common/GlobalStyle'
-import Container from '../common/Container/Container'
-import Login from '../features/login/login'
+import Container from '../common/container/Container'
+import Login from '../features/login/Login'
 
 export default class App extends Component {
   render() {
@@ -16,6 +16,8 @@ export default class App extends Component {
           <Login />
         </Container>
       </>
+
+      
       // <QueryRenderer
       //   environment={environment}
       //   query={graphql`
