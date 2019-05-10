@@ -1,31 +1,19 @@
 import {
-    Environment,
-    Network,
-    RecordSource,
-    Store,
-  } from 'relay-runtime';
-  
-  function fetchQuery(
-    request,
-    variables,
-  ) {
-    return fetch('http://localhost:9001/graphql', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        query: request.text,
-        variables,
-      }),
-    }).then(response => {
-      return response.json();
-    });
-  }
-  
-  const environment = new Environment({
-    network: Network.create(fetchQuery),
-    store: new Store(new RecordSource()),  
-  });
-  
-  export default environment;
+  Environment,
+  Network,
+  RecordSource,
+  Store,
+} from 'relay-runtime';
+
+import fetchQuery from './fetchQuery'
+
+const network = Network.create(fetchQuery)
+const source = new RecordSource()
+const store = new Store(source)
+
+const environment = new Environment({
+  network,
+  store,
+});
+
+export default environment;
