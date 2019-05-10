@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components'
 
-import Card from '../../common/cards/Card'
-import { Row } from '../../common/columns/Columns'
+import Card from '../../common/Card'
+import { Row } from '../../common/Columns'
 
 const Summary = () => (
     <>

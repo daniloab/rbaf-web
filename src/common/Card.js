@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Col } from '../columns/Columns'
+import { Col } from './Columns'
 
 const Content = styled.div`
     width: 100%;

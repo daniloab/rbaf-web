@@ -1,7 +1,7 @@
 import React from 'react';
 
-import {Row, Col} from '../../common/columns/Columns'
-import Table from '../../common/table/Table'
+import {Row, Col} from '../../common/Columns'
+import Table from '../../common/Table'
 import {headers, rows} from '../../helpers/mocks/const'
 
 const List = props => (

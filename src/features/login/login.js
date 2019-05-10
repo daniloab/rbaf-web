@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import { Row, Col } from '../../common/columns/Columns'
+import { Row, Col } from '../../common/Columns'
 
 export default class Login extends Component {
     render() {

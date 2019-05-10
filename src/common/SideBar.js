@@ -5,9 +5,9 @@ import {
     MdSupervisorAccount
 } from 'react-icons/md'
 import { Router, Link } from 'react-router-dom'
-import { history } from '../../helpers/History'
+import { history } from '../helpers/History'
 
-import global from '../../helpers/Global'
+import global from '../helpers/Global'
 
 const Content = styled.div``
 

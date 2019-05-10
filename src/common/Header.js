@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { MdDehaze, MdPowerSettingsNew, MdSettings } from 'react-icons/md'
 
-import global from '../../helpers/Global'
+import global from '../helpers/Global'
 
 export const Title = styled.a``
 export const RightNavbar = styled.div``

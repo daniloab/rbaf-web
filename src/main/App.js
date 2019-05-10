@@ -3,11 +3,14 @@ import { graphql, QueryRenderer } from 'react-relay';
 
 import environment from '../relay/Environment'
 
-import Header from '../common/navigation/Header'
-import SideBar from '../common/navigation/SideBar'
-import GlobalStyle from '../common/GlobalStyle'
-import MainContainer from '../common/container/MainContainer'
-import Login from '../features/login/Login'
+import { 
+  Header,
+  GlobalStyle,
+  Loading,
+  SideBar
+} from '../common/index'
+
+import MainContainer from '../common/MainContainer'
 import Routes from './routes'
 
 export default class App extends Component {
@@ -20,6 +23,7 @@ export default class App extends Component {
         <MainContainer>
           <Routes />
         </MainContainer>
+        <Loading loading={true}/>
       </>
       
       // <QueryRenderer

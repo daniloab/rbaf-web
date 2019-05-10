@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
 
-import global from '../../helpers/Global'
+import global from '../helpers/Global'
 
 const StyledTable = styled.table`
     width: 100%;  
