@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "@babel/core": "7.4.3",
-    "@material-ui/icons": "^3.0.2",
     "@svgr/webpack": "4.1.0",
     "@typescript-eslint/eslint-plugin": "1.6.0",
     "@typescript-eslint/parser": "1.6.0",
@@ -48,6 +47,7 @@
     "react-app-polyfill": "^1.0.1",
     "react-dev-utils": "^9.0.1",
     "react-dom": "^16.8.6",
+    "react-icons": "^3.7.0",
     "react-relay": "3.0.0",
     "react-router-dom": "^5.0.0",
     "resolve": "1.10.0",

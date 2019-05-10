@@ -1,21 +1,25 @@
 import React, {Fragment} from 'react'
 import { Router, Route } from 'react-router-dom'
 
-import { history } from '../helpers/history'
+import { history } from '../helpers/History'
 
-import {PrivateRoute} from '../helpers/privateRoute'
+import {PrivateRoute} from '../helpers/PrivateRoute'
 import Login from '../features/login/Login'
 import Summary from '../features/summary/Summary'
-import Teams from '../features/teams/Teams'
-import Players from '../features/players/Players'
+import Teams from '../features/teams/List'
+import Players from '../features/players/List'
 
 const Routes = () => (
     <Router history={history}>
         <Fragment>
             <Route exact path='/login' component={Login}/>
-            <PrivateRoute exact path='/' component={Summary} />            
+            
+            <Route exact path='/' component={Summary} />            
+            <Route exact path='/times' component={Teams} />
+            <Route exact path='/jogadores' component={Players} />
+            {/* <PrivateRoute exact path='/' component={Summary} />            
             <PrivateRoute exact path='/times' component={Teams} />
-            <PrivateRoute exact path='/jogadores' component={Players} />
+            <PrivateRoute exact path='/jogadores' component={Players} /> */}
         </Fragment>
     </Router>
 )

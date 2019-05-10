@@ -3,20 +3,24 @@ import { graphql, QueryRenderer } from 'react-relay';
 
 import environment from '../relay/Environment'
 
+import Header from '../common/navigation/Header'
+import SideBar from '../common/navigation/SideBar'
 import GlobalStyle from '../common/GlobalStyle'
 import Container from '../common/container/Container'
 import Login from '../features/login/Login'
+import Routes from './routes'
 
 export default class App extends Component {
   render() {
     return (
       <>
         <GlobalStyle />
+        <Header/>
+        <SideBar/>
         <Container>
-          <Login />
+          <Routes />
         </Container>
       </>
-
       
       // <QueryRenderer
       //   environment={environment}
