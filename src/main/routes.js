@@ -7,7 +7,7 @@ import {PrivateRoute} from '../helpers/PrivateRoute'
 import Login from '../features/login/Login'
 import Summary from '../features/summary/Summary'
 import Teams from '../features/teams/List'
-import Players from '../features/players/List'
+import List from '../features/players/List'
 
 const Routes = () => (
     <Router history={history}>
@@ -16,7 +16,7 @@ const Routes = () => (
             
             <Route exact path='/' component={Summary} />            
             <Route exact path='/times' component={Teams} />
-            <Route exact path='/jogadores' component={Players} />
+            <Route exact path='/jogadores' component={List} />
             {/* <PrivateRoute exact path='/' component={Summary} />            
             <PrivateRoute exact path='/times' component={Teams} />
             <PrivateRoute exact path='/jogadores' component={Players} /> */}

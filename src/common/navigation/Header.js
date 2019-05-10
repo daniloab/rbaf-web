@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {MdDehaze, MdPowerSettingsNew, MdSettings} from 'react-icons/md'
+import { MdDehaze, MdPowerSettingsNew, MdSettings } from 'react-icons/md'
 
 import global from '../../helpers/Global'
 
@@ -32,6 +32,7 @@ export const HeaderWrapper = styled.header`
     background: ${global.style.primaryColor};
     display: flex;
     justify-content: space-between;
+    box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);
 
     ${Title} {        
         color: white;
@@ -46,6 +47,17 @@ export const HeaderWrapper = styled.header`
     ${RightNavbar} {
         display: flex;
         align-items: center;
+
+        li:hover{
+                cursor: pointer;
+                background: ${global.style.secondaryColor};
+                transition: all 0.3s ease-in-out;
+
+                svg {   
+                    color: ${global.style.primaryColor};
+                    transition: all 0.3s ease-in-out;
+                }
+            }
     }
 
     ${List} {
@@ -79,8 +91,8 @@ const Header = props => (
             </WrapperLeftContent>
             <RightNavbar>
                 <List>
-                    <Item><MdSettings/></Item>
-                    <Item><MdPowerSettingsNew/></Item>
+                    <Item><MdSettings /></Item>
+                    <Item><MdPowerSettingsNew /></Item>
                 </List>
             </RightNavbar>
         </HeaderWrapper>

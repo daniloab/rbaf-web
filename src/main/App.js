@@ -6,7 +6,7 @@ import environment from '../relay/Environment'
 import Header from '../common/navigation/Header'
 import SideBar from '../common/navigation/SideBar'
 import GlobalStyle from '../common/GlobalStyle'
-import Container from '../common/container/Container'
+import MainContainer from '../common/container/MainContainer'
 import Login from '../features/login/Login'
 import Routes from './routes'
 
@@ -17,9 +17,9 @@ export default class App extends Component {
         <GlobalStyle />
         <Header/>
         <SideBar/>
-        <Container>
+        <MainContainer>
           <Routes />
-        </Container>
+        </MainContainer>
       </>
       
       // <QueryRenderer

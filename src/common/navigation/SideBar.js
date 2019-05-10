@@ -5,7 +5,7 @@ import {
     MdSupervisorAccount
 } from 'react-icons/md'
 import { Router, Link } from 'react-router-dom'
-import {history} from '../../helpers/History'
+import { history } from '../../helpers/History'
 
 import global from '../../helpers/Global'
 
@@ -65,12 +65,16 @@ const SideBar = () => (
             <StyledSideBar>
                 <Content>
                     <ul>
-                        <li>
-                            <MdHome size={20} />
-                        </li>
-                        <li>
-                            <MdSupervisorAccount size={20} />
-                        </li>
+                        <Link to="/">
+                            <li>
+                                <MdHome size={20} />
+                            </li>
+                        </Link>
+                        <Link to="/jogadores">
+                            <li>
+                                <MdSupervisorAccount size={20} />
+                            </li>
+                        </Link>
                     </ul>
                 </Content>
             </StyledSideBar>
