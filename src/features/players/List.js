@@ -4,7 +4,7 @@ import {Row, Col} from '../../common/Columns'
 import Table from '../../common/Table'
 import {headers, rows} from '../../helpers/mocks/const'
 
-const List = props => (
+const PlayersList = props => (
     <>
         <h1>Atletas</h1>
         <Row>
@@ -16,4 +16,4 @@ const List = props => (
     </>
 );
 
-export default List;
+export default PlayersList;
