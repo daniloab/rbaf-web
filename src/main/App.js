@@ -13,60 +13,30 @@ import {
 import MainContainer from '../common/MainContainer'
 import Routes from './routes'
 
+const Private = () => (
+  <>
+      <GlobalStyle />
+      <Routes />
+  </>
+);
+
+const Public = () => (
+  <>
+      <GlobalStyle />
+      <Header />
+      <SideBar />
+      <MainContainer>
+        <Routes />
+      </MainContainer>
+  </>
+)
+const user = {token: ''}
 export default class App extends Component {
-  state = {
-    token: ''
-  }
-
   componentDidMount() {
-    const t = localStorage.getItem('token')
-
-    this.setState({ state: t || '' })
+    user.token = localStorage.getItem('token')
   }
 
   render() {
-    if (this.state.token)
-      return (
-        <>
-          <GlobalStyle />
-          <Header />
-          <SideBar />
-          <MainContainer>
-            <Routes />
-          </MainContainer>
-          <Loading loading={true} />
-        </>
-      )
-    else
-      return (
-        <>
-          <GlobalStyle />
-          <Routes />
-        </>
-      );
-
-    // <QueryRenderer
-    //   environment={environment}
-    //   query={graphql`
-    //   query AppQuery{
-    //     users {
-    //       name
-    //       username
-    //       email
-    //     }  
-    //   }
-    // `}
-    //   variables={{}}
-    //   render={({ error, props }) => {
-    //     console.log(props)
-    //     if (error) {
-    //       return <div>Error!</div>;
-    //     }
-    //     if (!props) {
-    //       return <div>Loading...</div>;
-    //     }
-    //     return <div>User ID: {props.users[0]  .name}</div>;
-    //   }}
-    // />
+    return user.token ? <Private /> : <Public token={user.token}/>
   }
 }
