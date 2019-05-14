@@ -48,14 +48,14 @@ const TdCircleStatus = styled.td`
 const Circle = styled.span`
   width: 1rem;
   height: 1rem;
-  background-color: red;
+  background-color: ${props => props.status === 1 ? 'lightgreen' : 'red'};
   border-radius: 50%;
   display: flex;
 `
 
 const CircleStatus = ({ children, i, ...props }) => {
   return (
-    <TdCircleStatus key={i}>
+    <TdCircleStatus>
       <Circle {...props} />
     </TdCircleStatus>
   )
@@ -73,11 +73,12 @@ export default class ListTable extends Component {
     const rows = this.props.rows || []
     return rows.map((r, i) => (
       <>
-        <tr>
-          <CircleStatus key={i} status={r.status} />
-          <td key={i}>{r.name}</td>
-          <td key={i}>{r.lastname}</td>
-          <td key={i}>{r.position}</td>
+        <tr key={i}>
+          <CircleStatus status={r.status} />
+          <td>{r.name}</td>
+          <td>{r.lastname}</td>
+          <td>{r.position}</td>
+          <td>{r.document}</td>
         </tr>
       </>
     ))

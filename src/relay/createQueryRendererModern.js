@@ -19,7 +19,7 @@ export default function createQueryRenderer(
                     environment={environment}
                     query={query}
                     variables={variables}
-                    rende={({ error, props }) => {
+                    render={({ error, props }) => {
                         if (error) {
                             return <span>{error.toString()}</span>
                         }

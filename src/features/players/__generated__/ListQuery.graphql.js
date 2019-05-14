@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 73f79f903aecd8a0ba3595c5d737f2e1
+ * @relayHash 105f942a41d0c83c5b44c30a42054f3b
  */
 
 /* eslint-disable */
@@ -28,7 +28,11 @@ query ListQuery {
 
 fragment List_query on Query {
   players {
+    status
     name
+    lastname
+    position
+    document
   }
 }
 */
@@ -66,7 +70,35 @@ const node/*: ConcreteRequest*/ = {
           {
             "kind": "ScalarField",
             "alias": null,
+            "name": "status",
+            "args": null,
+            "storageKey": null
+          },
+          {
+            "kind": "ScalarField",
+            "alias": null,
             "name": "name",
+            "args": null,
+            "storageKey": null
+          },
+          {
+            "kind": "ScalarField",
+            "alias": null,
+            "name": "lastname",
+            "args": null,
+            "storageKey": null
+          },
+          {
+            "kind": "ScalarField",
+            "alias": null,
+            "name": "position",
+            "args": null,
+            "storageKey": null
+          },
+          {
+            "kind": "ScalarField",
+            "alias": null,
+            "name": "document",
             "args": null,
             "storageKey": null
           }
@@ -78,7 +110,7 @@ const node/*: ConcreteRequest*/ = {
     "operationKind": "query",
     "name": "ListQuery",
     "id": null,
-    "text": "query ListQuery {\n  ...List_query\n}\n\nfragment List_query on Query {\n  players {\n    name\n  }\n}\n",
+    "text": "query ListQuery {\n  ...List_query\n}\n\nfragment List_query on Query {\n  players {\n    status\n    name\n    lastname\n    position\n    document\n  }\n}\n",
     "metadata": {}
   }
 };
