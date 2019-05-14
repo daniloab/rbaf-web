@@ -7,7 +7,7 @@ import { history } from '../../helpers/History'
 import environment from '../../relay/Environment'
 import LoginMutation from '../../mutation/LoginMutation'
 
-import { Row, Col } from '../../common/Columns'
+import {GlobalStyle, Row, Col} from '../../common/index'
 
 export default class Login extends Component {
 
@@ -33,6 +33,8 @@ export default class Login extends Component {
     }
     render() {
         return (
+            <>
+            <GlobalStyle/>
             <Row justify="center" align="center">
                 <Col span={6} justify="center" align="center">
                     <LoginForm>
@@ -60,6 +62,7 @@ export default class Login extends Component {
                     </LoginForm>
                 </Col>
             </Row>
+            </>
         )
     }
 }
