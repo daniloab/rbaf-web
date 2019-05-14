@@ -4,7 +4,7 @@ import {checkLocalStorage} from '../helpers/LocalStorage'
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const auth = checkLocalStorage('token', null)
-    const isAuth = auth ? true : false
+  const isAuth = auth ? true : false
 
   return (
     <Route {...rest} render={props =>
