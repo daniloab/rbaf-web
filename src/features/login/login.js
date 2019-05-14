@@ -1,30 +1,68 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { MdEmail } from 'react-icons/md';
+import { Formik } from 'formik'
+import { history } from '../../helpers/History'
 
-import { Row, Col } from '../../common/Columns'
+import environment from '../../relay/Environment'
+import LoginMutation from '../../mutation/LoginMutation'
+
+import {GlobalStyle, Row, Col} from '../../common/index'
 
 export default class Login extends Component {
+
+    componentDidMount() {
+        const authenticated = localStorage.getItem("token")
+        if(authenticated)
+            history.push('/')
+    }
+
+    login = ({ email, password }) => {
+        LoginMutation.commit({
+            environment,
+            input: { email, password },
+            onCompleted: ({ LoginEmail }) => {
+                const { token } = LoginEmail
+                if (token !== null) {
+                    localStorage.setItem("token", token)
+                    history.push('/')
+                }
+            },
+            onError: (errors) => console.log(errors)
+        })
+    }
     render() {
         return (
+            <>
+            <GlobalStyle/>
             <Row justify="center" align="center">
                 <Col span={6} justify="center" align="center">
                     <LoginForm>
-                        <form action="">
-                            <FormHead>
-                                <h1>rbaf manager</h1>
-                            </FormHead>
-                            <div>
-                                <Input type="text" placeholder="login" />
-                                <Input type="password" placeholder="password" />
-                                <div>
-                                    <BtnSignIn type="submit">sign in</BtnSignIn>
-                                    <BtnSignUp>sign up</BtnSignUp>
-                                </div>
-                            </div>
-                        </form>
+                        <Formik
+                            initialValues={{ email: '', password: '' }}
+                            onSubmit={(values) => {
+                                this.login(values)
+                            }}
+                            render={({ handleSubmit, handleChange, handleBlur, errors, values }) => (
+                                <form action="POST" onSubmit={handleSubmit}>
+                                    <FormHead>
+                                        <h1>rbaf manager</h1>
+                                    </FormHead>
+                                    <div>
+                                        <Input type="text" name="email" onChange={handleChange} onBlur={handleBlur} placeholder="login" />
+                                        <Input type="password" name="password" onChange={handleChange} onBlur={handleBlur} placeholder="password" />
+                                        <div>
+                                            <BtnSignIn type="submit">sign in</BtnSignIn>
+                                            <BtnSignUp>sign up</BtnSignUp>
+                                        </div>
+                                    </div>
+                                </form>
+                            )}
+                        />
                     </LoginForm>
                 </Col>
             </Row>
+            </>
         )
     }
 }
@@ -112,7 +150,7 @@ const Input = styled.input`
   }
 `
 
-const BtnSignIn = styled.button `
+const BtnSignIn = styled.button`
     ${BtnDefault}
     color: white;
     background-color: ${pColor};
@@ -122,7 +160,7 @@ const BtnSignIn = styled.button `
       transition: background-color 0.3s;
     }
 `
-  
+
 const BtnSignUp = styled.button`
     ${BtnDefault}   
     background-color: transparent;

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { MdPowerSettingsNew, MdSettings } from 'react-icons/md'
 
+import {history} from '../helpers/History'
 import global from '../helpers/Global'
 
 export const Title = styled.a``
@@ -72,6 +73,7 @@ export const HeaderWrapper = styled.header`
             svg {
                 color: white;
                 font-size: 2rem;
+                cursor: default;
             }
             
             &:hover {
@@ -83,20 +85,28 @@ export const HeaderWrapper = styled.header`
     }
 `;
 
-const Header = props => (
-    <>
-        <HeaderWrapper>
-            <WrapperLeftContent>
-                <Title href="/">RBAF Manager</Title>
-            </WrapperLeftContent>
-            <RightNavbar>
-                <List>
-                    <Item><MdSettings /></Item>
-                    <Item><MdPowerSettingsNew /></Item>
-                </List>
-            </RightNavbar>
-        </HeaderWrapper>
-    </>
-);
+const Header = props => {
+    function logout() {
+        localStorage.removeItem('token')
+        history.push('/login')
+    }
+    return (
+        <>
+            <HeaderWrapper>
+                <WrapperLeftContent>
+                    <Title href="/">RBAF Manager</Title>
+                </WrapperLeftContent>
+                <RightNavbar>
+                    <List>
+                        <Item><MdSettings /></Item>
+                        <Item onClick={logout}>
+                            <MdPowerSettingsNew />
+                        </Item>
+                    </List>
+                </RightNavbar>
+            </HeaderWrapper>
+        </>
+    )
+};
 
 export default Header;

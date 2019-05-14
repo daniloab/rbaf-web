@@ -32,7 +32,7 @@ const fetchQuery = async (request, variables) => {
         body
     })
 
-    return await request.json()
+    return await response.json()
 }
 
 export default fetchQuery
