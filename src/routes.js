@@ -16,15 +16,7 @@ import {
     SideBar
 } from './common/index'
 
-import MainContainer from './common/MainContainer'
-
-const privateRoute = [
-    {
-      path: "/",
-      name: "Home",
-    }
-  ];
-  
+import MainContainer from './common/MainContainer'  
 
 const RestrictedArea = () => {
     return (
