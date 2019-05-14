@@ -70,7 +70,7 @@ const SideBar = () => (
                                 <MdHome size={20} />
                             </li>
                         </Link>
-                        <Link to="/jogadores">
+                        <Link to="/atletas">
                             <li>
                                 <MdSupervisorAccount size={20} />
                             </li>

@@ -1,3 +1,21 @@
+input AddPlayerInput {
+  name: String!
+  lastname: String!
+  position: String
+  document: String!
+  clientMutationId: String
+}
+
+type AddPlayerPayload {
+  status: Int
+  name: String
+  lastname: String
+  position: String
+  document: String
+  error: String
+  clientMutationId: String
+}
+
 input ChangePasswordInput {
   oldPassword: String!
 
@@ -23,17 +41,33 @@ type LoginEmailPayload {
   clientMutationId: String
 }
 
-"""Root of user mutations"""
+"""Root of ... mutations"""
 type Mutation {
   """Login Mutation"""
   LoginEmail(input: LoginEmailInput!): LoginEmailPayload
   RegisterEmail(input: RegisterEmailInput!): RegisterEmailPayload
   ChangePassword(input: ChangePasswordInput!): ChangePasswordPayload
+  AddPlayer(input: AddPlayerInput!): AddPlayerPayload
+  UpdatePlayer(input: UpdatePlayerInput!): UpdatePlayerPayload
+  RemovePlayer(input: RemovePlayerInput!): RemovePlayerPayload
+}
+
+"""player data"""
+type player {
+  _id: ID
+  status: Int
+  name: String
+  lastname: String
+  position: String
+  document: String
 }
 
 """The root of all queries"""
 type Query {
+  me: User
   users: [User]
+  players: [player]
+  playerById(_id: String): player
 }
 
 input RegisterEmailInput {
@@ -46,6 +80,38 @@ input RegisterEmailInput {
 
 type RegisterEmailPayload {
   token: String
+  error: String
+  clientMutationId: String
+}
+
+input RemovePlayerInput {
+  _id: String!
+  clientMutationId: String
+}
+
+type RemovePlayerPayload {
+  name: String
+  lastname: String
+  error: String
+  clientMutationId: String
+}
+
+input UpdatePlayerInput {
+  _id: String!
+  status: Int
+  name: String
+  lastname: String
+  position: String
+  document: String
+  clientMutationId: String
+}
+
+type UpdatePlayerPayload {
+  status: Int
+  name: String
+  lastname: String
+  position: String
+  document: String
   error: String
   clientMutationId: String
 }
