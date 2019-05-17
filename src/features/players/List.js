@@ -16,7 +16,6 @@ const PlayersList = ({ query }) => {
                     <Table headers={headers} rows={players} />
                 </Col>
             </Row>
-
         </>
     )
 };
@@ -24,13 +23,14 @@ const PlayersList = ({ query }) => {
 const PlayersListContainer = createFragmentContainer(PlayersList, {
     query: graphql`
         fragment List_query on Query {
-            players {
-                status
-                name
-                lastname
-                position
-                document
-            }
+            players(status:1){
+                edges{
+                  node{
+                    name
+                    lastname
+                  }
+                }
+              }
         }
     `
 })
