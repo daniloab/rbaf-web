@@ -5,9 +5,9 @@ import { Row, Col } from '../../common/Columns'
 import Table from '../../common/Table'
 import { headers } from '../../helpers/mocks/const'
 
-const PlayersList = ({ query }) => {
-    const { players } = query
-    
+const StaffList = ({ query }) => {
+    const { coaches } = query
+    console.log(coaches)
     return (
         <>
             <h1>Atletas</h1>
@@ -22,8 +22,8 @@ const PlayersList = ({ query }) => {
 
 const PlayersListContainer = createFragmentContainer(PlayersList, {
     query: graphql`
-        fragment List_query on Query {
-            players(status:1){
+        fragment StaffList_query on Query {
+            coaches(status:1){
                 edges{
                   node{
                     name
