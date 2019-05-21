@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 105f942a41d0c83c5b44c30a42054f3b
+ * @relayHash 40369d75ed129ccd3e7133758815f68e
  */
 
 /* eslint-disable */
@@ -27,12 +27,13 @@ query ListQuery {
 }
 
 fragment List_query on Query {
-  players {
-    status
-    name
-    lastname
-    position
-    document
+  players(status: 1) {
+    edges {
+      node {
+        name
+        lastname
+      }
+    }
   }
 }
 */
@@ -62,45 +63,53 @@ const node/*: ConcreteRequest*/ = {
         "kind": "LinkedField",
         "alias": null,
         "name": "players",
-        "storageKey": null,
-        "args": null,
-        "concreteType": "player",
-        "plural": true,
+        "storageKey": "players(status:1)",
+        "args": [
+          {
+            "kind": "Literal",
+            "name": "status",
+            "value": 1,
+            "type": "Int"
+          }
+        ],
+        "concreteType": "PlayerConnection",
+        "plural": false,
         "selections": [
           {
-            "kind": "ScalarField",
+            "kind": "LinkedField",
             "alias": null,
-            "name": "status",
+            "name": "edges",
+            "storageKey": null,
             "args": null,
-            "storageKey": null
-          },
-          {
-            "kind": "ScalarField",
-            "alias": null,
-            "name": "name",
-            "args": null,
-            "storageKey": null
-          },
-          {
-            "kind": "ScalarField",
-            "alias": null,
-            "name": "lastname",
-            "args": null,
-            "storageKey": null
-          },
-          {
-            "kind": "ScalarField",
-            "alias": null,
-            "name": "position",
-            "args": null,
-            "storageKey": null
-          },
-          {
-            "kind": "ScalarField",
-            "alias": null,
-            "name": "document",
-            "args": null,
-            "storageKey": null
+            "concreteType": "PlayerEdge",
+            "plural": true,
+            "selections": [
+              {
+                "kind": "LinkedField",
+                "alias": null,
+                "name": "node",
+                "storageKey": null,
+                "args": null,
+                "concreteType": "player",
+                "plural": false,
+                "selections": [
+                  {
+                    "kind": "ScalarField",
+                    "alias": null,
+                    "name": "name",
+                    "args": null,
+                    "storageKey": null
+                  },
+                  {
+                    "kind": "ScalarField",
+                    "alias": null,
+                    "name": "lastname",
+                    "args": null,
+                    "storageKey": null
+                  }
+                ]
+              }
+            ]
           }
         ]
       }
@@ -110,7 +119,7 @@ const node/*: ConcreteRequest*/ = {
     "operationKind": "query",
     "name": "ListQuery",
     "id": null,
-    "text": "query ListQuery {\n  ...List_query\n}\n\nfragment List_query on Query {\n  players {\n    status\n    name\n    lastname\n    position\n    document\n  }\n}\n",
+    "text": "query ListQuery {\n  ...List_query\n}\n\nfragment List_query on Query {\n  players(status: 1) {\n    edges {\n      node {\n        name\n        lastname\n      }\n    }\n  }\n}\n",
     "metadata": {}
   }
 };

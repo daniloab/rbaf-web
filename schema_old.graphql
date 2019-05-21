@@ -1,3 +1,21 @@
+input AddPlayerInput {
+  name: String!
+  lastname: String!
+  position: String
+  document: String!
+  clientMutationId: String
+}
+
+type AddPlayerPayload {
+  status: Int
+  name: String
+  lastname: String
+  position: String
+  document: String
+  error: String
+  clientMutationId: String
+}
+
 input ChangePasswordInput {
   oldPassword: String!
 
@@ -29,23 +47,9 @@ type Mutation {
   LoginEmail(input: LoginEmailInput!): LoginEmailPayload
   RegisterEmail(input: RegisterEmailInput!): RegisterEmailPayload
   ChangePassword(input: ChangePasswordInput!): ChangePasswordPayload
-  RegisterPlayer(input: RegisterPlayerInput!): RegisterPlayerPayload
+  AddPlayer(input: AddPlayerInput!): AddPlayerPayload
+  UpdatePlayer(input: UpdatePlayerInput!): UpdatePlayerPayload
   RemovePlayer(input: RemovePlayerInput!): RemovePlayerPayload
-}
-
-"""Information about pagination in a connection."""
-type PageInfo {
-  """When paginating forwards, are there more items?"""
-  hasNextPage: Boolean!
-
-  """When paginating backwards, are there more items?"""
-  hasPreviousPage: Boolean!
-
-  """When paginating backwards, the cursor to continue."""
-  startCursor: String
-
-  """When paginating forwards, the cursor to continue."""
-  endCursor: String
 }
 
 """player data"""
@@ -58,30 +62,12 @@ type player {
   document: String
 }
 
-"""A connection to a list of items."""
-type PlayerConnection {
-  """Information to aid in pagination."""
-  pageInfo: PageInfo!
-
-  """A list of edges."""
-  edges: [PlayerEdge]
-}
-
-"""An edge in a connection."""
-type PlayerEdge {
-  """The item at the end of the edge"""
-  node: player
-
-  """A cursor for use in pagination"""
-  cursor: String!
-}
-
 """The root of all queries"""
 type Query {
   me: User
   users: [User]
-  player(_id: String): player
-  players(after: String, first: Int, before: String, last: Int, status: Int): PlayerConnection
+  players: [player]
+  playerById(_id: String): player
 }
 
 input RegisterEmailInput {
@@ -98,22 +84,6 @@ type RegisterEmailPayload {
   clientMutationId: String
 }
 
-input RegisterPlayerInput {
-  _id: String
-  status: Int
-  name: String
-  lastname: String
-  position: String
-  document: String
-  clientMutationId: String
-}
-
-type RegisterPlayerPayload {
-  newPlayer: player
-  error: String
-  clientMutationId: String
-}
-
 input RemovePlayerInput {
   _id: String!
   clientMutationId: String
@@ -122,6 +92,26 @@ input RemovePlayerInput {
 type RemovePlayerPayload {
   name: String
   lastname: String
+  error: String
+  clientMutationId: String
+}
+
+input UpdatePlayerInput {
+  _id: String!
+  status: Int
+  name: String
+  lastname: String
+  position: String
+  document: String
+  clientMutationId: String
+}
+
+type UpdatePlayerPayload {
+  status: Int
+  name: String
+  lastname: String
+  position: String
+  document: String
   error: String
   clientMutationId: String
 }
