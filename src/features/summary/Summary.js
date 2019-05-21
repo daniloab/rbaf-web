@@ -17,7 +17,7 @@ const Summary = ({ query }) => {
             <Row>
                 <Card span={4} spamSm={12} obj={on} text="Atletas ativos" />
                 <Card span={4} spamSm={12} obj={off} text="Atletas ativos" />
-                <Card span={4} spamSm={12} obj={date} text="Atletas ativos" />
+                {/* <Card span={4} spamSm={12} obj={date} text="Atletas ativos" /> */}
             </Row>
         </>
     )
