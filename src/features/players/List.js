@@ -2,18 +2,18 @@ import React from 'react';
 import { graphql, createFragmentContainer } from 'react-relay'
 import { createQueryRendererModern } from '../../relay'
 import { Row, Col } from '../../common/Columns'
-import Table from '../../common/Table'
+import TablePlayers from '../../common/TablePlayers'
 import { headers } from '../../helpers/mocks/const'
 
 const PlayersList = ({ query }) => {
     const { players } = query
-    
+    console.log(players)
     return (
         <>
             <h1>Atletas</h1>
             <Row>
                 <Col span={12}>
-                    <Table headers={headers} rows={players} />
+                    <TablePlayers headers={headers} rows={players.edges} />
                 </Col>
             </Row>
         </>
@@ -26,8 +26,12 @@ const PlayersListContainer = createFragmentContainer(PlayersList, {
             players(status:1){
                 edges{
                   node{
+                    _id
+                    status
                     name
                     lastname
+                    position
+                    document
                   }
                 }
               }

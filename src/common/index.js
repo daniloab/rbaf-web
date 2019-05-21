@@ -6,7 +6,7 @@ import Header from './Header'
 import Loading from './Loading'
 import MainContainer from './MainContainer'
 import SideBar from './SideBar'
-import Table from './Table'
+import TablePlayers from './TablePlayers'
 
 export {
     Card,
@@ -18,5 +18,5 @@ export {
     MainContainer,
     Row,
     SideBar,
-    Table
+    TablePlayers
 }

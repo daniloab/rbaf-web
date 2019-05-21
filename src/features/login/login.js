@@ -53,7 +53,7 @@ export default class Login extends Component {
                                         <Input type="password" name="password" onChange={handleChange} onBlur={handleBlur} placeholder="password" />
                                         <div>
                                             <BtnSignIn type="submit">sign in</BtnSignIn>
-                                            <BtnSignUp>sign up</BtnSignUp>
+                                            {/* <BtnSignUp>sign up</BtnSignUp> */}
                                         </div>
                                     </div>
                                 </form>

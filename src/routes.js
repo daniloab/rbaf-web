@@ -6,8 +6,10 @@ import PrivateRoute from './helpers/PrivateRoute'
 
 import Login from './features/login/Login'
 import Summary from './features/summary/Summary'
-import Teams from './features/teams/List'
 import PlayersList from './features/players/List'
+import CoachesList from './features/staff/coaches/CoachesList'
+import CoachesDetails from './features/staff/coaches/CoachesDetails'
+import CoachesAdd from './features/staff/coaches/CoachesAdd'
 
 import {
     Header,
@@ -28,6 +30,10 @@ const RestrictedArea = () => {
                 <Switch>
                     <PrivateRoute exact path="/" component={Summary} />
                     <PrivateRoute exact path="/atletas" component={PlayersList} />
+                    <PrivateRoute exact path="/coaches" component={CoachesList} />
+                    <PrivateRoute exact path="/coaches/add" component={CoachesAdd} />
+                    <PrivateRoute exact path="/coaches/detalhes/:coachId" component={CoachesDetails} />
+                    <PrivateRoute exact path="/coaches/detalhes/:id/editar" component={CoachesDetails} />
                 </Switch>
             </MainContainer>
         </>

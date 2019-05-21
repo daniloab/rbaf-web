@@ -73,12 +73,12 @@ export default class ListTable extends Component {
     const rows = this.props.rows || []
     return rows.map((r, i) => (
       <>
-        <tr key={r.document}>
+        <tr key={r.node._id}>
           <CircleStatus status={r.status} />
-          <td>{r.name}</td>
-          <td>{r.lastname}</td>
-          <td>{r.position}</td>
-          <td>{r.document}</td>
+          <td>{r.node.name}</td>
+          <td>{r.node.lastname}</td>
+          <td>{r.node.position}</td>
+          <td>{r.node.document}</td>
         </tr>
       </>
     ))

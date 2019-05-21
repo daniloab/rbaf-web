@@ -11,6 +11,34 @@ type ChangePasswordPayload {
   clientMutationId: String
 }
 
+"""coach data"""
+type coach {
+  _id: ID
+  squad: Int
+  name: String
+  lastname: String
+  job: String
+  document: String
+}
+
+"""A connection to a list of items."""
+type CoachConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [CoachEdge]
+}
+
+"""An edge in a connection."""
+type CoachEdge {
+  """The item at the end of the edge"""
+  node: coach
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
 input LoginEmailInput {
   email: String!
   password: String!
@@ -81,7 +109,30 @@ type Query {
   me: User
   users: [User]
   player(_id: String): player
-  players(after: String, first: Int, before: String, last: Int, status: Int): PlayerConnection
+  players(
+    after: String
+    first: Int
+    before: String
+    last: Int
+
+    """Status players - 1: enable; 99: disabled"""
+    status: Int
+
+    """Date - the newest players added until 10 days before from this date"""
+    new: String
+  ): PlayerConnection
+  coach(_id: String): coach
+
+  """get all coaches"""
+  coaches(
+    after: String
+    first: Int
+    before: String
+    last: Int
+
+    """Coaches per squad - 1: offense; 2: defense; 3: special teams"""
+    squad: Int
+  ): CoachConnection
 }
 
 input RegisterEmailInput {

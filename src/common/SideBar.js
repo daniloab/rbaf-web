@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import {
     MdHome,
-    MdSupervisorAccount
+    MdSupervisorAccount,
+    MdInsertEmoticon
 } from 'react-icons/md'
 import { Router, Link } from 'react-router-dom'
 import { history } from '../helpers/History'
@@ -71,6 +72,12 @@ const SideBar = () => (
                             </li>
                         </Link>
                         <Link to="/atletas">
+                            <li>
+                                <MdInsertEmoticon size={20} />
+                            </li>
+                        </Link>
+                        
+                        <Link to="/coaches">
                             <li>
                                 <MdSupervisorAccount size={20} />
                             </li>

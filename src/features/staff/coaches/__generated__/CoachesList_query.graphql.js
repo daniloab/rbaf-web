@@ -9,28 +9,24 @@
 /*::
 import type { ReaderFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
-declare export opaque type List_query$ref: FragmentReference;
-export type List_query = {|
-  +players: ?{|
+declare export opaque type CoachesList_query$ref: FragmentReference;
+export type CoachesList_query = {|
+  +coaches: ?{|
     +edges: ?$ReadOnlyArray<?{|
       +node: ?{|
-        +_id: ?string,
-        +status: ?number,
         +name: ?string,
         +lastname: ?string,
-        +position: ?string,
-        +document: ?string,
       |}
     |}>
   |},
-  +$refType: List_query$ref,
+  +$refType: CoachesList_query$ref,
 |};
 */
 
 
 const node/*: ReaderFragment*/ = {
   "kind": "Fragment",
-  "name": "List_query",
+  "name": "CoachesList_query",
   "type": "Query",
   "metadata": null,
   "argumentDefinitions": [],
@@ -38,17 +34,10 @@ const node/*: ReaderFragment*/ = {
     {
       "kind": "LinkedField",
       "alias": null,
-      "name": "players",
-      "storageKey": "players(status:1)",
-      "args": [
-        {
-          "kind": "Literal",
-          "name": "status",
-          "value": 1,
-          "type": "Int"
-        }
-      ],
-      "concreteType": "PlayerConnection",
+      "name": "coaches",
+      "storageKey": null,
+      "args": null,
+      "concreteType": "CoachConnection",
       "plural": false,
       "selections": [
         {
@@ -57,7 +46,7 @@ const node/*: ReaderFragment*/ = {
           "name": "edges",
           "storageKey": null,
           "args": null,
-          "concreteType": "PlayerEdge",
+          "concreteType": "CoachEdge",
           "plural": true,
           "selections": [
             {
@@ -66,23 +55,9 @@ const node/*: ReaderFragment*/ = {
               "name": "node",
               "storageKey": null,
               "args": null,
-              "concreteType": "player",
+              "concreteType": "coach",
               "plural": false,
               "selections": [
-                {
-                  "kind": "ScalarField",
-                  "alias": null,
-                  "name": "_id",
-                  "args": null,
-                  "storageKey": null
-                },
-                {
-                  "kind": "ScalarField",
-                  "alias": null,
-                  "name": "status",
-                  "args": null,
-                  "storageKey": null
-                },
                 {
                   "kind": "ScalarField",
                   "alias": null,
@@ -96,20 +71,6 @@ const node/*: ReaderFragment*/ = {
                   "name": "lastname",
                   "args": null,
                   "storageKey": null
-                },
-                {
-                  "kind": "ScalarField",
-                  "alias": null,
-                  "name": "position",
-                  "args": null,
-                  "storageKey": null
-                },
-                {
-                  "kind": "ScalarField",
-                  "alias": null,
-                  "name": "document",
-                  "args": null,
-                  "storageKey": null
                 }
               ]
             }
@@ -120,5 +81,5 @@ const node/*: ReaderFragment*/ = {
   ]
 };
 // prettier-ignore
-(node/*: any*/).hash = 'bc2eca14010d2cd8555cbba4de397186';
+(node/*: any*/).hash = '3867ed7d893b84051cfd4340d07ed3e9';
 module.exports = node;
