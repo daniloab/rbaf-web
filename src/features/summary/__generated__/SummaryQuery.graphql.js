@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash de62a318570e8cdf89cb8f3f386368d2
+ * @relayHash 4e95ce00b456ad9230aaf35e2ca47247
  */
 
 /* eslint-disable */
@@ -32,6 +32,7 @@ fragment Summary_query on Query {
       node {
         name
         lastname
+        id
       }
     }
   }
@@ -40,6 +41,7 @@ fragment Summary_query on Query {
       node {
         name
         lastname
+        id
       }
     }
   }
@@ -77,6 +79,13 @@ var v0 = [
             "kind": "ScalarField",
             "alias": null,
             "name": "lastname",
+            "args": null,
+            "storageKey": null
+          },
+          {
+            "kind": "ScalarField",
+            "alias": null,
+            "name": "id",
             "args": null,
             "storageKey": null
           }
@@ -146,7 +155,7 @@ return {
     "operationKind": "query",
     "name": "SummaryQuery",
     "id": null,
-    "text": "query SummaryQuery {\n  ...Summary_query\n}\n\nfragment Summary_query on Query {\n  on: players(status: 1) {\n    edges {\n      node {\n        name\n        lastname\n      }\n    }\n  }\n  off: players(status: 99) {\n    edges {\n      node {\n        name\n        lastname\n      }\n    }\n  }\n}\n",
+    "text": "query SummaryQuery {\n  ...Summary_query\n}\n\nfragment Summary_query on Query {\n  on: players(status: 1) {\n    edges {\n      node {\n        name\n        lastname\n        id\n      }\n    }\n  }\n  off: players(status: 99) {\n    edges {\n      node {\n        name\n        lastname\n        id\n      }\n    }\n  }\n}\n",
     "metadata": {}
   }
 };

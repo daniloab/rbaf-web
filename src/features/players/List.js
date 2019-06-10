@@ -31,7 +31,7 @@ const PlayersListContainer = createFragmentContainer(PlayersList, {
                     name
                     lastname
                     position
-                    document
+                    taxId
                   }
                 }
               }

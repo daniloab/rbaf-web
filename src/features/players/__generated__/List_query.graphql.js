@@ -19,7 +19,7 @@ export type List_query = {|
         +name: ?string,
         +lastname: ?string,
         +position: ?string,
-        +document: ?string,
+        +taxId: ?string,
       |}
     |}>
   |},
@@ -107,7 +107,7 @@ const node/*: ReaderFragment*/ = {
                 {
                   "kind": "ScalarField",
                   "alias": null,
-                  "name": "document",
+                  "name": "taxId",
                   "args": null,
                   "storageKey": null
                 }
@@ -120,5 +120,5 @@ const node/*: ReaderFragment*/ = {
   ]
 };
 // prettier-ignore
-(node/*: any*/).hash = 'bc2eca14010d2cd8555cbba4de397186';
+(node/*: any*/).hash = '56beb6b1c7362899664233067f3694ec';
 module.exports = node;

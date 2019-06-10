@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash adcfd98778db76805455f54affc91b50
+ * @relayHash 692757466a0e8bd1a691d7928fb8d28c
  */
 
 /* eslint-disable */
@@ -35,7 +35,8 @@ fragment List_query on Query {
         name
         lastname
         position
-        document
+        taxId
+        id
       }
     }
   }
@@ -135,7 +136,14 @@ const node/*: ConcreteRequest*/ = {
                   {
                     "kind": "ScalarField",
                     "alias": null,
-                    "name": "document",
+                    "name": "taxId",
+                    "args": null,
+                    "storageKey": null
+                  },
+                  {
+                    "kind": "ScalarField",
+                    "alias": null,
+                    "name": "id",
                     "args": null,
                     "storageKey": null
                   }
@@ -151,7 +159,7 @@ const node/*: ConcreteRequest*/ = {
     "operationKind": "query",
     "name": "ListQuery",
     "id": null,
-    "text": "query ListQuery {\n  ...List_query\n}\n\nfragment List_query on Query {\n  players(status: 1) {\n    edges {\n      node {\n        _id\n        status\n        name\n        lastname\n        position\n        document\n      }\n    }\n  }\n}\n",
+    "text": "query ListQuery {\n  ...List_query\n}\n\nfragment List_query on Query {\n  players(status: 1) {\n    edges {\n      node {\n        _id\n        status\n        name\n        lastname\n        position\n        taxId\n        id\n      }\n    }\n  }\n}\n",
     "metadata": {}
   }
 };

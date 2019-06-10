@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash fb2b1536f641b1c7e83a750aab749fb7
+ * @relayHash e9e8504c78256d721b84589d15a26dfb
  */
 
 /* eslint-disable */
@@ -32,6 +32,7 @@ fragment CoachesList_query on Query {
       node {
         name
         lastname
+        id
       }
     }
   }
@@ -99,6 +100,13 @@ const node/*: ConcreteRequest*/ = {
                     "name": "lastname",
                     "args": null,
                     "storageKey": null
+                  },
+                  {
+                    "kind": "ScalarField",
+                    "alias": null,
+                    "name": "id",
+                    "args": null,
+                    "storageKey": null
                   }
                 ]
               }
@@ -112,7 +120,7 @@ const node/*: ConcreteRequest*/ = {
     "operationKind": "query",
     "name": "CoachesListQuery",
     "id": null,
-    "text": "query CoachesListQuery {\n  ...CoachesList_query\n}\n\nfragment CoachesList_query on Query {\n  coaches {\n    edges {\n      node {\n        name\n        lastname\n      }\n    }\n  }\n}\n",
+    "text": "query CoachesListQuery {\n  ...CoachesList_query\n}\n\nfragment CoachesList_query on Query {\n  coaches {\n    edges {\n      node {\n        name\n        lastname\n        id\n      }\n    }\n  }\n}\n",
     "metadata": {}
   }
 };

@@ -13,12 +13,15 @@ type ChangePasswordPayload {
 
 """coach data"""
 type coach {
-  _id: ID
-  squad: Int
+  """The ID of an object"""
+  id: ID!
+  _id: String
+  staff: String
   name: String
   lastname: String
   job: String
-  document: String
+  taxId: String
+  team: team
 }
 
 """A connection to a list of items."""
@@ -59,6 +62,7 @@ type Mutation {
   ChangePassword(input: ChangePasswordInput!): ChangePasswordPayload
   RegisterPlayer(input: RegisterPlayerInput!): RegisterPlayerPayload
   RemovePlayer(input: RemovePlayerInput!): RemovePlayerPayload
+  RegisterTeam(input: RegisterTeamInput!): RegisterTeamPayload
 }
 
 """Information about pagination in a connection."""
@@ -78,12 +82,15 @@ type PageInfo {
 
 """player data"""
 type player {
-  _id: ID
+  """The ID of an object"""
+  id: ID!
+  _id: String
   status: Int
   name: String
   lastname: String
   position: String
-  document: String
+  taxId: String
+  team: team
 }
 
 """A connection to a list of items."""
@@ -131,7 +138,7 @@ type Query {
     last: Int
 
     """Coaches per squad - 1: offense; 2: defense; 3: special teams"""
-    squad: Int
+    staff: Int
   ): CoachConnection
 }
 
@@ -140,6 +147,7 @@ input RegisterEmailInput {
   username: String!
   email: String!
   password: String!
+  team: String!
   clientMutationId: String
 }
 
@@ -152,15 +160,31 @@ type RegisterEmailPayload {
 input RegisterPlayerInput {
   _id: String
   status: Int
-  name: String
+  name: String!
   lastname: String
   position: String
-  document: String
+  taxId: String!
+  team: String!
   clientMutationId: String
 }
 
 type RegisterPlayerPayload {
   newPlayer: player
+  error: String
+  clientMutationId: String
+}
+
+input RegisterTeamInput {
+  _id: String
+  status: Int
+  name: String
+  tradeName: String
+  taxId: String
+  clientMutationId: String
+}
+
+type RegisterTeamPayload {
+  newTeam: team
   error: String
   clientMutationId: String
 }
@@ -177,11 +201,25 @@ type RemovePlayerPayload {
   clientMutationId: String
 }
 
+"""team data"""
+type team {
+  """The ID of an object"""
+  id: ID!
+  _id: String
+  status: Int
+  name: String
+  tradeName: String
+  taxId: String
+}
+
 """User data"""
 type User {
-  _id: ID
+  """The ID of an object"""
+  id: ID!
+  _id: String
   name: String
   username: String
   email: String
   password: String
+  team: team
 }
