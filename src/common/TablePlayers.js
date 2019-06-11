@@ -78,7 +78,7 @@ export default class ListTable extends Component {
           <td>{r.node.name}</td>
           <td>{r.node.lastname}</td>
           <td>{r.node.position}</td>
-          <td>{r.node.document}</td>
+          <td>{r.node.taxId}</td>
         </tr>
       </>
     ))

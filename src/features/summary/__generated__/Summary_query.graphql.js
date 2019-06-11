@@ -99,12 +99,12 @@ return {
       "kind": "LinkedField",
       "alias": "off",
       "name": "players",
-      "storageKey": "players(status:99)",
+      "storageKey": "players(status:0)",
       "args": [
         {
           "kind": "Literal",
           "name": "status",
-          "value": 99,
+          "value": 0,
           "type": "Int"
         }
       ],
@@ -116,5 +116,5 @@ return {
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '0808325dcec656ebefec4a0175005d10';
+(node/*: any*/).hash = 'c7bd71f9a6821ce1901f18f081dd88b3';
 module.exports = node;

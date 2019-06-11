@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 4e95ce00b456ad9230aaf35e2ca47247
+ * @relayHash 458fc7bb77243e0d8286c4092b35b983
  */
 
 /* eslint-disable */
@@ -36,7 +36,7 @@ fragment Summary_query on Query {
       }
     }
   }
-  off: players(status: 99) {
+  off: players(status: 0) {
     edges {
       node {
         name
@@ -136,12 +136,12 @@ return {
         "kind": "LinkedField",
         "alias": "off",
         "name": "players",
-        "storageKey": "players(status:99)",
+        "storageKey": "players(status:0)",
         "args": [
           {
             "kind": "Literal",
             "name": "status",
-            "value": 99,
+            "value": 0,
             "type": "Int"
           }
         ],
@@ -155,7 +155,7 @@ return {
     "operationKind": "query",
     "name": "SummaryQuery",
     "id": null,
-    "text": "query SummaryQuery {\n  ...Summary_query\n}\n\nfragment Summary_query on Query {\n  on: players(status: 1) {\n    edges {\n      node {\n        name\n        lastname\n        id\n      }\n    }\n  }\n  off: players(status: 99) {\n    edges {\n      node {\n        name\n        lastname\n        id\n      }\n    }\n  }\n}\n",
+    "text": "query SummaryQuery {\n  ...Summary_query\n}\n\nfragment Summary_query on Query {\n  on: players(status: 1) {\n    edges {\n      node {\n        name\n        lastname\n        id\n      }\n    }\n  }\n  off: players(status: 0) {\n    edges {\n      node {\n        name\n        lastname\n        id\n      }\n    }\n  }\n}\n",
     "metadata": {}
   }
 };

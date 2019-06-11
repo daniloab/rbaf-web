@@ -1,1 +1,1 @@
-export const headers = ['Status', 'Nome', 'Sobrenome','Posição', 'Documento']
+export const headers = ['Status', 'Nome', 'Sobrenome','PosiÃ§Ã£o', 'Documento']

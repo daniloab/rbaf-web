@@ -8,16 +8,14 @@ import { Row } from '../../common/Columns'
 const Summary = ({ query }) => {
     const { off, on } = query
     const date = {}
-    
-    console.log(query)
 
     return (
         <>
             <h1>Bem vindo(a)</h1>
             <Row>
-                <Card span={4} spamSm={12} obj={on} text="Atletas ativos" />
-                <Card span={4} spamSm={12} obj={off} text="Atletas ativos" />
-                {/* <Card span={4} spamSm={12} obj={date} text="Atletas ativos" /> */}
+                <Card span={4} spamSm={12} value={0} text="Faltas Útimo Treino" />
+                <Card span={4} spamSm={12} value={on.edges.length} text="Atletas ativos" />
+                <Card span={4} spamSm={12} value={off.edges.length} text="Atletas Inativos" />
             </Row>
         </>
     )
@@ -34,7 +32,7 @@ const SummaryContainer = createFragmentContainer(Summary, {
                   }
                 }
               }
-              off:players(status:99){
+              off:players(status:0){
                 edges{
                   node{
                     name
