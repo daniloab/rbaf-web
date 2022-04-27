@@ -4,7 +4,7 @@ import { Router, Route, Switch } from 'react-router-dom'
 import { history } from './helpers/History'
 import PrivateRoute from './helpers/PrivateRoute'
 
-import Login from './features/login/Login'
+import Login from './features/login/login'
 import Summary from './features/summary/Summary'
 import PlayersList from './features/players/List'
 import CoachesList from './features/staff/coaches/CoachesList'
